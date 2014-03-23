@@ -1,0 +1,17 @@
+#some notes for self on using south with databases
+
+after installation of south and addition to project settings.py
+
+to setup initial migration stuff (only do once)
+python manage.py schemamigration <appname> --initial
+
+to migrate stuff
+python manage.py migrate <appname> 
+
+do this after changing a model
+python manage.py schemamigration <appname> --auto
+
+then migrate and apply the changes
+python manage.py migrate <appname>
+
+
