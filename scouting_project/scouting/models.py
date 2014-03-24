@@ -16,6 +16,12 @@ class TeamData(models.Model):
     assists = models.PositiveIntegerField(default=0)
     auto_points = models.PositiveIntegerField(default=0)
     teleop_points = models.PositiveIntegerField(default=0)
+
+    #ideally total points will be calculated by the program by
+    #adding together the values of auto_points & teleop_points
+    #will figure that out later O.o
+    total_points = models.PositiveIntegerField(default=0)
+    
     
     #comments and stuff
     comments = models.TextField(default="No Comments in Entry")
