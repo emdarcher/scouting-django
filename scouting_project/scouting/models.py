@@ -20,12 +20,17 @@ class TeamData(models.Model):
     #ideally total points will be calculated by the program by
     #adding together the values of auto_points & teleop_points
     #will figure that out later O.o
-    total_points = models.PositiveIntegerField(default=0)
     
+    #total_points = models.PositiveIntegerField(default=0)
+    total_points = models.PositiveIntegerField(default=0)
+
     
     #comments and stuff
     comments = models.TextField(default="No Comments in Entry")
 
-    
+    def __unicode__(self):
+        return "team_number: %d, match_number %d" % (self.team_number, self.match_number)
+
+     
     
      
