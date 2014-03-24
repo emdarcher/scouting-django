@@ -9,10 +9,13 @@ class TeamData(models.Model):
     match_number = models.PositiveIntegerField(default=0) #should be made sure to be filled!
 
     team_number = models.PositiveIntegerField(default=10000001) #stores team's number, MUST BE FILLED IN! if not, it will default to 10000001 (probably won't exist for a while)
+    
+    #general points and count stuff
     catches = models.PositiveIntegerField(default=0)
     truss = models.PositiveIntegerField(default=0)
     assists = models.PositiveIntegerField(default=0)
     auto_points = models.PositiveIntegerField(default=0)
+    teleop_points = models.PositiveIntegerField(default=0)
     
     
      
