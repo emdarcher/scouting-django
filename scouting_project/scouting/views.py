@@ -1,10 +1,13 @@
 from django.shortcuts import render
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 
 #got to import models 
 from scouting.models import TeamData
+
+#got to import the forms
+from scouting.forms import TeamDataForm
 
 # Create your views here.
 
@@ -29,3 +32,23 @@ def teamdata_list(request):
     return render(request, "scouting/teamdata_list.html", context)
 
 
+def input(request):
+
+    #context = RequestContext(request)
+
+    if request.method == 'POST':
+        form = TeamDataForm(request.POST)
+        if form.is_valid():
+            #put form processing stuff here
+            
+            form.save(commit=True)
+            
+            return teamdata_list(request)
+        else:
+            print form.errors
+
+    else:
+        form = TeamDataForm()
+
+    return render(request, 'scouting/input.html',{ 'form' : form })
+          

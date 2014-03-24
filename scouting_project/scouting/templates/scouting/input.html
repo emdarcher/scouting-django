@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Input Scouting Page</title></head>
+	<body>
+		<h3>Input Scouting Data</h3>
+
+		<form action="/scouting/input/" method="post">{% csrf_token %}
+			
+			{% for hidden in form.hidden_fields %}
+				{{ hidden }}
+			{% endfor %}<br />
+			
+			{% for field in form.visible_fields %}
+				{{ field.errors }}
+				{{ field.help_text }}
+				{{field }}<br />
+			{% endfor %}
+			
+		<input type="submit" value="Submit" />
+
+	</body>
+
+</html>
