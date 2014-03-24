@@ -17,5 +17,9 @@ class TeamData(models.Model):
     auto_points = models.PositiveIntegerField(default=0)
     teleop_points = models.PositiveIntegerField(default=0)
     
+    #comments and stuff
+    comments = models.TextField(default="No Comments in Entry")
+
+    
     
      
