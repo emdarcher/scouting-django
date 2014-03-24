@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head><title>TeamData List</title></head>
+	<body>
+		<h3>TeamData List by match_number</h3>
+
+		<h4>match_number----team_number----auto_points----teleop_points</h4>
+		{% if list_by_match_context %}
+		<ul>
+			{% for data in list_by_match_context %}
+			<li>{{ data.match_number }}----{{ data.team_number }}----{{ data.auto_points }}----{{ data.teleop_points }}</li>
+			{% endfor %}
+		</ul><br />
+		{% else %}
+			<strong> there is no team data, strange. </strong><br />
+		{% endif %}
+		<a href="/scouting/">index page</a>
+	</body>
+
+</html>
