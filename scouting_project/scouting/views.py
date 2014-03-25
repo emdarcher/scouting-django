@@ -49,10 +49,10 @@ def input(request):
         form = TeamDataForm(request.POST)
         if form.is_valid():
             #put form processing stuff here
-            
+            scouter = form.cleaned_data.get('scouter_name')
             form.save(commit=True)
             
-            return teamdata_list(request)
+            return thanks(request, scouter)
         else:
             print form.errors
 
@@ -61,3 +61,10 @@ def input(request):
 
     return render(request, 'scouting/input.html',{ 'form' : form })
           
+
+def thanks(request,name):
+    #says thanks and asks if they want to enter again
+
+    #context = RequestContext(request)
+
+    return render(request, 'scouting/thanks.html', {'name': name})

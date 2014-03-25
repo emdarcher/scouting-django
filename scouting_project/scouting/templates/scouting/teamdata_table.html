@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
-	<head><title>TeamData List</title></head>
+	<head><title>TeamData Table</title></head>
 	<body>
-		<h3>TeamData List by match_number</h3>
+		<h3>TeamData Table by match_number</h3>
 
-		<h4>match_number----team_number----auto_points----teleop_points</h4>
+		<!--<h4>match_number----team_number----auto_points----teleop_points</h4>-->
 		{% if list_by_match_context %}
 		<table border="1">
 			
 			<tr>
 				<td><b>Match Number</b></td>
 				<td><b>Team Number</b></td>
+				<td><b>Catches</b></td>
+				<td><b>Truss</b></td>
+				<td><b>Assists</b></td>
+				<td><b>Autonomous</b></td>
+				<td><b>Tele-Op</b></td>
+				<td><b>Total Points</b></td>
+				<td><b>Scouter's name</b></td>
 			</tr>
 			
 			{% for data in list_by_match_context %}
@@ -18,6 +25,12 @@
 				<td>{{ data.match_number }}</td>
 				<td>{{ data.team_number }}</td>
 				<td>{{ data.catches }}</td>
+				<td>{{ data.truss }}</td>
+				<td>{{ data.assists }}</td>
+				<td>{{ data.auto_points }}</td>
+				<td>{{ data.teleop_points }}</td>
+				<td>{{ data.total_points }}</td>
+				<td>{{ data.scouter_name }}</td>
 				
 			</tr>
 			{% endfor %}
