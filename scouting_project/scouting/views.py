@@ -31,6 +31,15 @@ def teamdata_list(request):
 
     return render(request, "scouting/teamdata_list.html", context)
 
+def teamdata_table(request):
+
+    #crates list with TeamData
+    list_by_match = TeamData.objects.order_by('-match_number')[0:]
+
+    #creates context
+    context = {'list_by_match_context':list_by_match}
+
+    return render(request, "scouting/teamdata_table.html", context)
 
 def input(request):
 
