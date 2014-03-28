@@ -68,3 +68,33 @@ def thanks(request,name):
     #context = RequestContext(request)
 
     return render(request, 'scouting/thanks.html', {'name': name})
+
+def team(request,team_number_url):
+
+    #context = RequestContext(request)
+     
+        
+
+    context_dict = {'team_number_url' : team_number_url}
+    
+    #stuff to sort and get the teams match data to the page
+    
+
+    #try:
+    #    #try to find team with given number
+    #    # if we can't the .get() method raises a DoesNotExist exception.
+    #    teamnum = TeamData.objects.get(team_number = team_number_url)
+    # 
+    #    #used to verify team exists
+    #    context_dict['teamnum'] = teamnum
+
+    #except TeamData.DoesNotExist:
+    #    #if we did not find it template witll display "no team found"
+    #
+    #    pass
+
+    return render(request, 'scouting/team.html', context_dict)
+
+
+
+

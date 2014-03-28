@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     url(r'^input/$', views.input, name='input'),
     url(r'^teamdata_table/$', views.teamdata_table, name='teamdata_table'),
     url(r'^thanks/$', views.thanks, name='thanks'),
+    url(r'^team/(?P<team_number_url>\w+)/$', views.team, name='team'),
 )
