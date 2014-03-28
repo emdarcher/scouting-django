@@ -78,7 +78,25 @@ def team(request,team_number_url):
     context_dict = {'team_number_url' : team_number_url}
     
     #stuff to sort and get the teams match data to the page
+    list_by_match = TeamData.objects.order_by('-match_number')[0:]
     
+    #relevant_matches = []
+    relevant_matches = TeamData.objects.filter(team_number = team_number_url)
+    
+
+    #for match in list_by_match:
+    #    #
+    #    #find related matches
+    #     if match.team_number == team_number_url:
+    #        relevant_matches.append(match)
+    #    
+    #    ##remove unrelated matches
+    #    #if match.team_number != team_number_url:
+    #    #    del relevant_matches[match] 
+
+       
+    context_dict['relevant_matches'] = relevant_matches
+
 
     #try:
     #    #try to find team with given number

@@ -23,7 +23,7 @@
 			{% for data in list_by_match_context %}
 			<tr>
 				<td>{{ data.match_number }}</td>
-				<td>{{ data.team_number }}</td>
+				<td><a href="/scouting/team/{{ data.team_number }}">{{ data.team_number }}</a></td>
 				<td>{{ data.catches }}</td>
 				<td>{{ data.truss }}</td>
 				<td>{{ data.assists }}</td>

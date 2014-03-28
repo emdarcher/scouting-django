@@ -4,9 +4,37 @@
 	<head><title>Team {{ team_number_url }}</title></head>
 	<body>
 		<h1>{{ team_number_url }}</h1>
-		
-			
-		
+		<p>stats for team: {{ team_number_url }}</p>
+		{% if relevant_matches %}
+		<table border=1>
+			<tr>
+				<td><b>Match #</b></td>
+				<td><b>catches</b></td>
+				<td><b>truss shots</b></td>
+				<td><b>assists</b></td>
+				<td><b>auto points</b></td>
+				<td><b>tele-op points</b></td>
+				<td><b>total points</b></td>
+				<td><b>Scouter's Name</b></td>
+				<td><b>Comments</b></td>
+			</tr>
+			{% for match in relevant_matches %}
+				<tr>
+					<td>{{ match.match_number }}</td>
+					<td>{{ match.catches }}</td>
+					<td>{{ match.truss }}</td>
+					<td>{{ match.assists }}</td>
+					<td>{{ match.auto_points }}</td>
+					<td>{{ match.teleop_points }}</td>
+					<td>{{ match.total_points }}</td>
+					<td>{{ match.scouter_name }}</td>
+					<td>{{ match.comments }}</td>
+				</tr>
+			{% endfor %}		
+		</table>
+		{% else %}
+			<strong>no relevant matches!</strong>	
+		{% endif %}
 	</body>
 
 </html>
