@@ -50,8 +50,13 @@ def input(request):
         if form.is_valid():
             #put form processing stuff here
             scouter = form.cleaned_data.get('scouter_name')
-            form.save(commit=True)
-            
+            #form.save(commit=True)
+            #add stuff to deal with the total_points part of the model
+            total = (form.cleaned_data.get('auto_points')) + (form.cleaned_data.get('teleop_points'))
+            part_form = form.save(commit=False)
+            part_form.total_points = total            
+            part_form.save()
+
             return thanks(request, scouter)
         else:
             print form.errors

@@ -14,7 +14,9 @@ class TeamDataForm(forms.ModelForm):
     auto_points = forms.IntegerField(help_text="enter total autonomous points", required=True)
     teleop_points = forms.IntegerField(help_text="enter total tele-op points", required=True)
     
-    total_points = forms.IntegerField(help_text = "enter total points scored by robot, auto points plus tele-op points", required=True)
+    #make it hidden
+    total_points = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
+    #total_points = forms.IntegerField(help_text = "enter total points scored by robot, auto points plus tele-op points", required=True)
 
     comments = forms.CharField(widget=forms.Textarea,help_text="Enter comments or stategy notes below:", required=False)
 
@@ -22,4 +24,5 @@ class TeamDataForm(forms.ModelForm):
     class Meta:
         model = TeamData
         fields = '__all__'
-
+        #exclude the total_points field, this means we must set it in the view
+        #exclude = ['total_points']
